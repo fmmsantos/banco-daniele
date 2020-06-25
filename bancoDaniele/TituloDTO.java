@@ -18,6 +18,7 @@ public class TituloDTO {
 		this.nrDocumento = nrDocumento;
 		this.dataVencimento = dataVencimento;
 		this.valor = valor;
+		this.status=status;
 		
 	}
 	

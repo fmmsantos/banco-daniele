@@ -1,14 +1,17 @@
 package bancoDaniele;
 
 
+import static org.junit.Assert.assertEquals;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
-import bancoDaniele.ClasseImplemente;
+import bancoDaniele.SerasaConciliacaoServiceImpl;
 import bancoDaniele.StatusTitulo;
 import bancoDaniele.TituloDTO;
 
@@ -32,8 +35,11 @@ public class TestBanco {
 	bancos.add(banco);
 	bancos.add(banco1);
 	bancos.add(banco2);
-	ClasseImplemente clas = new ClasseImplemente();
+	SerasaConciliacaoServiceImpl clas = new SerasaConciliacaoServiceImpl();
 	clas.conciliar(bancos, serasas);
+	Assert.assertEquals(StatusTitulo.PAGO, StatusTitulo.PAGO);
+	
+	
 	}
 	@Test
 	public void resultadoBanco3ValoresDiferente() {
@@ -55,8 +61,11 @@ public class TestBanco {
 	bancos.add(banco);
 	bancos.add(banco1);
 	bancos.add(banco2);
-	ClasseImplemente clas = new ClasseImplemente();
+	bancos.add(banco3);
+	SerasaConciliacaoServiceImpl clas = new SerasaConciliacaoServiceImpl();
+	 
 	clas.conciliar(bancos, serasas);
+	
 	}
 
 }

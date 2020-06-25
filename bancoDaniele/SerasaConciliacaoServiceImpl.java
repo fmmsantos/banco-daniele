@@ -3,7 +3,7 @@ package bancoDaniele;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClasseImplemente implements SerasaConciliacaoService {
+public class SerasaConciliacaoServiceImpl implements SerasaConciliacaoService {
 
 	@Override
 	public List<ConciliacaoDTO> conciliar(List<TituloDTO> titulosBanco, List<TituloDTO> tituloSerasa) {
@@ -22,11 +22,10 @@ public class ClasseImplemente implements SerasaConciliacaoService {
 				conc.setValor(banco.getValor());
 				
 					conciliacoes.add(conc);
+					
 				}
-				else {
-					throw new IllegalArgumentException("nao sao iguais");
-				}
-				break;
+				
+				
 			}
 			
 

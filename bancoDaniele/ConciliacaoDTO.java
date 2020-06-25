@@ -11,6 +11,7 @@ public class ConciliacaoDTO {
 	private StatusTitulo statusSerasa;
 	
 	
+	
 	public String getNrDocumento() {
 		return nrDocumento;
 	}

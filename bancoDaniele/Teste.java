@@ -8,14 +8,15 @@ import java.util.List;
 
 public class Teste {
 	public static void main(String[] args) {
-		TituloDTO serasa=new TituloDTO("123", LocalDate.of(2019, 3, 10),new BigDecimal("253.74"),StatusTitulo.ATRASO);
-		TituloDTO serasa1=new TituloDTO("252", LocalDate.of(2020, 1, 15),new BigDecimal("100.00"),StatusTitulo.ATRASO);
-		TituloDTO serasa2=new TituloDTO("356", LocalDate.of(2019, 5, 15),new BigDecimal("380.28"),StatusTitulo.ATRASO);
+		
+	
+	TituloDTO banco = new TituloDTO("1233", LocalDate.of(2019, 4, 10), new BigDecimal("700"), StatusTitulo.ATRASO);
+	TituloDTO banco1 = new TituloDTO("1234", LocalDate.of(2019, 5, 15), new BigDecimal("800"), StatusTitulo.PAGO);
+	TituloDTO banco2 = new TituloDTO("1235", LocalDate.of(2019, 6, 20), new BigDecimal("600"), StatusTitulo.PAGO);
 
-		TituloDTO banco=new TituloDTO("123", LocalDate.of(2019, 3, 10),new BigDecimal("253.74"),StatusTitulo.PAGO);
-		TituloDTO banco1=new TituloDTO("252", LocalDate.of(2020, 1, 15),new BigDecimal("100.00"),StatusTitulo.ATRASO);
-		TituloDTO banco2=new TituloDTO("356", LocalDate.of(2019, 5, 15),new BigDecimal("380.28"),StatusTitulo.RECOMPRADO);
-		TituloDTO banco3=new TituloDTO("453", LocalDate.of(2019, 5, 15),new BigDecimal("380.28"),StatusTitulo.A_VENCER);
+	TituloDTO serasa = new TituloDTO("1233", LocalDate.of(2019, 4, 10), new BigDecimal("700"), StatusTitulo.ATRASO);
+	TituloDTO serasa1 = new TituloDTO("1234", LocalDate.of(2019, 5, 15), new BigDecimal("800"), StatusTitulo.PAGO);
+	TituloDTO serasa2 = new TituloDTO("1235", LocalDate.of(2019, 6, 20), new BigDecimal("600"),StatusTitulo.ATRASO);
 		
 		List<TituloDTO> serasas= new ArrayList<>();
 		serasas.add(serasa);
@@ -26,15 +27,15 @@ public class Teste {
 		bancos.add(banco);
 		bancos.add(banco1);
 		bancos.add(banco2);
-		bancos.add(banco3);
-		SerasaConciliacaoServiceImpl clas = new SerasaConciliacaoServiceImpl();
-		
-				
-			System.out.println(clas.conciliar(bancos, serasas));
+		//bancos.add(banco3);
+		SerasaConciliacaoService service = new SerasaConciliacaoServiceImpl();
+		List<ConciliacaoDTO> output = service.conciliar(bancos, serasas);
 		
 		
 		
 		
+		
+	
 		
 		
 		

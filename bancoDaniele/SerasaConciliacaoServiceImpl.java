@@ -22,8 +22,14 @@ public class SerasaConciliacaoServiceImpl implements SerasaConciliacaoService {
 				conc.setValor(banco.getValor());
 				
 					conciliacoes.add(conc);
-					
+					System.out.println("quant "+ conciliacoes.size());
+					System.out.println("numero documento "+conc.getNrDocumento());
+					System.out.println("data venc "+conc.getDataVencimento());
+					System.out.println("status banco "+conc.getStatusBanco());
+					System.out.println("status serasa "+conc.getStatusSerasa());
+					System.out.println("valor "+ conc.getValor());
 				}
+				
 				
 				
 			}

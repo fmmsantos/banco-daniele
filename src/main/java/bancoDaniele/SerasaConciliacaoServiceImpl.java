@@ -3,39 +3,58 @@ package bancoDaniele;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class SerasaConciliacaoServiceImpl implements SerasaConciliacaoService {
 
+	static final Logger LOGGER = LoggerFactory.getLogger(SerasaConciliacaoServiceImpl.class);
+
 	@Override
-	public List<ConciliacaoDTO> conciliar(List<TituloDTO> titulosBanco, List<TituloDTO> tituloSerasa) {
+	public List<ConciliacaoDTO> conciliar(List<TituloDTO> titulosBanco, List<TituloDTO> titulosSerasa) {
+
+		LOGGER.info(
+			"Conciliacao de titulos iniciada | qtdTitulosBanco: {} | qtdTitulosSerasa: {}", 
+			titulosBanco.size(), titulosSerasa.size()
+		);
 		
 		List<ConciliacaoDTO> conciliacoes = new ArrayList<>();
-
-		for (TituloDTO banco : titulosBanco) {
+		
+		int indexTituloBanco = 0;
+		int indexTituloSerasa = 0;
+		
+		for (TituloDTO tituloBanco : titulosBanco) {			
 			
-			for (TituloDTO serasa : tituloSerasa) {
-				if(banco.getNrDocumento().equals(serasa.getNrDocumento()) && banco.getStatus()!=serasa.getStatus()) {
-				ConciliacaoDTO conc = new ConciliacaoDTO();
-				conc.setNrDocumento(banco.getNrDocumento());
-				conc.setDataVencimento(banco.getDataVencimento());
-				conc.setStatusBanco(banco.getStatus());
-				conc.setStatusSerasa(serasa.getStatus());
-				conc.setValor(banco.getValor());
+			LOGGER.debug("Verifica titulo banco | index: {} | {}", indexTituloBanco, tituloBanco);
+			
+			indexTituloSerasa = 0;
+			for (TituloDTO tituloSerasa : titulosSerasa) {
 				
-					conciliacoes.add(conc);
-					System.out.println("quant "+ conciliacoes.size());
-					System.out.println("numero documento "+conc.getNrDocumento());
-					System.out.println("data venc "+conc.getDataVencimento());
-					System.out.println("status banco "+conc.getStatusBanco());
-					System.out.println("status serasa "+conc.getStatusSerasa());
-					System.out.println("valor "+ conc.getValor());
+				LOGGER.debug("Verifica titulo serasa | index: {} | {}", indexTituloSerasa, tituloSerasa);
+				
+				if (tituloBanco.getNrDocumento().equals(tituloSerasa.getNrDocumento()) && tituloBanco.getStatus() != tituloSerasa.getStatus()) {
+					ConciliacaoDTO conc = new ConciliacaoDTO();
+					conc.setNrDocumento(tituloBanco.getNrDocumento());
+					conc.setDataVencimento(tituloBanco.getDataVencimento());
+					conc.setStatusBanco(tituloBanco.getStatus());
+					conc.setStatusSerasa(tituloSerasa.getStatus());
+					conc.setValor(tituloBanco.getValor());
+
+					conciliacoes.add(conc);					
 				}
 				
-				
-				
+				indexTituloSerasa++;
 			}
 			
+			indexTituloBanco++;
 
 		}
+		
+		LOGGER.info(
+			"Conciliacao de titulos concluida | qtdTitulosBanco: {} | qtdTitulosSerasa: {} | qtdConciliacoes={}", 
+			titulosBanco.size(), titulosSerasa.size(), conciliacoes.size()
+		);
+		
 		return conciliacoes;
 	}
 

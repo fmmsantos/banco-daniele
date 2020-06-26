@@ -53,7 +53,13 @@ public class TituloDTO {
 		this.status = status;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return String.format(
+			"TituloDTO(nrDocumento=%s, dataVencimento=%s, valor=%s, status=%s)", 
+			nrDocumento, dataVencimento, valor, status
+		);
+	}
 	
 	
 	

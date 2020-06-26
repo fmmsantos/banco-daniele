@@ -2,7 +2,6 @@ package bancoDaniele;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 
 public class TituloDTO {
 	private String nrDocumento;
@@ -61,8 +60,4 @@ public class TituloDTO {
 		);
 	}
 	
-	
-	
-	
-
 }

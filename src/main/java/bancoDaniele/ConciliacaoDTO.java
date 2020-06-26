@@ -43,4 +43,12 @@ public class ConciliacaoDTO {
 		this.statusSerasa = statusSerasa;
 	}
 	
+	@Override
+	public String toString() {
+		return String.format(
+			"ConciliacaoDTO(nrDocumento=%s, dataVencimento=%s, valor=%s, statusBanco=%s, statusSerasa=%s)", 
+			nrDocumento, dataVencimento, valor, statusBanco, statusSerasa
+		);
+	}
+	
 }

@@ -2,6 +2,7 @@ package bancoDaniele;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,6 +55,12 @@ public class SerasaConciliacaoServiceImpl implements SerasaConciliacaoService {
 			"Conciliacao de titulos concluida | qtdTitulosBanco: {} | qtdTitulosSerasa: {} | qtdConciliacoes={}", 
 			titulosBanco.size(), titulosSerasa.size(), conciliacoes.size()
 		);
+		
+		String conciliacoesToString = conciliacoes.stream()
+			.map(it -> it.toString())
+			.collect(Collectors.joining("\n  "));
+		
+		LOGGER.debug("Diferenças encontradas na conciliação: \n  {}", conciliacoesToString);
 		
 		return conciliacoes;
 	}

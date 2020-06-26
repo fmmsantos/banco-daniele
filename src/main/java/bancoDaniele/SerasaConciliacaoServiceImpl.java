@@ -26,12 +26,12 @@ public class SerasaConciliacaoServiceImpl implements SerasaConciliacaoService {
 		
 		for (TituloDTO tituloBanco : titulosBanco) {			
 			
-			LOGGER.debug("Verifica titulo banco | index: {} | {}", indexTituloBanco, tituloBanco);
+			LOGGER.debug("Verifica titulo banco | index: {} | {}", indexTituloBanco, tituloBanco.toString());
 			
 			indexTituloSerasa = 0;
 			for (TituloDTO tituloSerasa : titulosSerasa) {
 				
-				LOGGER.debug("Verifica titulo serasa | index: {} | {}", indexTituloSerasa, tituloSerasa);
+				LOGGER.debug("Verifica titulo serasa | index: {} | {}", indexTituloSerasa, tituloSerasa.toString());
 				
 				if (tituloBanco.getNrDocumento().equals(tituloSerasa.getNrDocumento()) && tituloBanco.getStatus() != tituloSerasa.getStatus()) {
 					ConciliacaoDTO conc = new ConciliacaoDTO();

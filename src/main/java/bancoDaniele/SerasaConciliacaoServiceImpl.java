@@ -34,8 +34,7 @@ public class SerasaConciliacaoServiceImpl implements SerasaConciliacaoService {
 				
 				LOGGER.debug("Verifica titulo serasa | index: {} | {}", indexTituloSerasa, tituloSerasa.toString());
 				
-				if (tituloBanco.getNrDocumento().equals(tituloSerasa.getNrDocumento()) && tituloBanco.getStatus() != tituloSerasa.getStatus()
-					|| tituloBanco.getValor().equals(new BigDecimal("250"))) {
+				if (tituloBanco.getNrDocumento().equals(tituloSerasa.getNrDocumento()) && tituloBanco.getStatus() != tituloSerasa.getStatus()) {
 					ConciliacaoDTO conc = new ConciliacaoDTO();
 					conc.setNrDocumento(tituloBanco.getNrDocumento());
 					conc.setDataVencimento(tituloBanco.getDataVencimento());

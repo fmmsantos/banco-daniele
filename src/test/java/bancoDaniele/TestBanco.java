@@ -1,6 +1,8 @@
 package bancoDaniele;
 
 
+import static org.junit.Assert.assertEquals;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,7 +28,9 @@ public class TestBanco {
 
 		SerasaConciliacaoService service = new SerasaConciliacaoServiceImpl();
 		List<ConciliacaoDTO> output = service.conciliar(titulosBanco, titulosSerasa);
-
+		
+		assertEquals("Deve retorna 2 titulos diferentes   conciliacao",2,output.size());
+		
 		ConciliacaoDTO conciliacao1 = output.get(0);
 
 		Assert.assertEquals("O numero do documento é ", "245", conciliacao1.getNrDocumento());
